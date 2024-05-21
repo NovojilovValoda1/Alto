@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вход</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="shool.png" alt="Логотип" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="location.html">Где нас найти?</a></li>
+        </ul>
+      </nav>
+      <div class="auth-links">
+        <a href="login.html">Вход</a>
+        <a href="register.html">Регистрация</a>
+      </div>
+    </header>
+
+    <main>
+      <h1>Вход</h1>
+      <form id="loginForm">
+        <div>
+          <label for="login">Email (логин):</label>
+          <input type="email" id="login" name="login" required />
+          <span class="error" id="loginError"></span>
+        </div>
+        <div>
+          <label for="password">Пароль:</label>
+          <input type="password" id="password" name="password" required />
+          <span class="error" id="passwordError"></span>
+        </div>
+        <div>
+          <button type="submit">Войти</button>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <style>
+        footer {
+          background-color: #177bda;
+          padding: 10px;
+          text-align: center;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+        }
+      </style>
+      <div class="contact-info">
+        <p>КОНТАКТЫ:</p>
+        <p>
+          188800 Ленинградская область, г. Выборг, пр. Суворова, д. 4
+          <img src="home.png" alt="Домик" />
+        </p>
+        <p>
+          Телефон: 8(81378)2-42-79; 8 (81378) 2-11-53
+          <img src="phone.png" alt="Телефон" />
+        </p>
+        <p>
+          E-mail: marketing@aaltolibrary.ru <img src="mail.png" alt="Почта" />
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

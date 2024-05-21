@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/book.png" type="image/png" />
+    <script src="script.js" defer></script>
+    <style>
+        /* Стили для всплывающего окна */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #b8b5b5;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #order-form label {
+            color: black; /* Цвет текста */
+        }
+
+        /* Стили для коллекции пластинок */
+        .collection {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .item {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .item img {
+            width: 100px;
+            height: 100px;
+            transition: transform 0.3s ease;
+        }
+
+        .item:hover img {
+            transform: scale(1.2);
+        }
+
+        /* Стили для sticky footer */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #177bda;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="book.png" alt="Логотип">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="location.html">Где нас найти?</a></li>
+            </ul>
+        </nav>
+        <div class="auth-links">
+            <a href="login.html">Вход</a>
+            <a href="register.html">Регистрация</a>
+        </div>
+        <div class="cart">
+            Корзина: <span id="cart-count">0</span>
+            <button class="order-button" id="checkout">Оформить заказ</button>
+        </div>
+       <!-- Всплывающее окно для оформления заказа -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Форма оформления заказа</h2>
+        <form id="order-form">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="address">Адрес доставки:</label>
+            <textarea id="address" name="address" required></textarea><br><br>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</div>
+    </header>
+
+    <main>
+        <h1>Каталог</h1>
+        <div class="collection">
+            <div class="item">
+                <img src="1.jpg" alt="Пластинка 1">
+                <p class="caption">Название пластинки 1</p>
+                <button class="reserve-button">в резерв</button>
+            </div>
+            <div class="item">
+                <img src="2.jpg" alt="Пластинка 2">
+                <p class="caption">Название пластинки 2</p>
+                <button class="reserve-button">в резерв</button>
+            </div>
+            <div class="item">
+                <img src="3.jpg" alt="Пластинка 3">
+                <p class="caption">Название пластинки 3</p>
+                <button class="reserve-button">в резерв</button>
+            </div>
+            <div class="item">
+                <img src="4.jpg" alt="Пластинка 4">
+                <p class="caption">Название пластинки 4</p>
+                <button class="reserve-button">в резерв</button>
+            </div>
+            <div class="item">
+                <img src="5.jpg" alt="Пластинка 5">
+                <p class="caption">Название пластинки 5</p>
+                <button class="reserve-button">в резерв</button>
+            </div>
+            <div class="item">
+                <img src="6.jpg" alt="Пластинка 6">
+                <p class="caption">Название пластинки 6</p>
+                <button class="reserve-button">в резерв</button>
+            </div>
+            <div class="item">
+                <img src="7.jpg" alt="Пластинка 7">
+                <p class="caption">Название пластинки 7</p>
+                <button class="reserve-button">в резерв</button>
+            </div>
+         
+        </div>
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <p>КОНТАКТЫ:</p>
+            <p>188800 Ленинградская область, г. Выборг, пр. Суворова, д. 4 <img src="home.png" alt="Домик"></п>
+            <p>Телефон: 8(81378)2-42-79; 8 (81378) 2-11-53 <img src="phone.png" alt="Телефон"></п>
+            <p>E-mail: marketing@aaltolibrary.ru <img src="mail.png" alt="Почта"></п>
+        </div>
+    </footer>
+
+    <script>
+        // Получаем модальное окно и кнопку "Оформить заказ"
+        const modal = document.getElementById('myModal');
+        const checkoutButton = document.getElementById('checkout');
+
+        // Получаем элемент закрытия модального окна
+        const close = document.getElementsByClassName('close')[0];
+
+        // Добавляем обработчик события для кнопки "Оформить заказ"
+        checkoutButton.addEventListener('click', () => {
+            // Показываем модальное окно
+            modal.style.display = 'block';
+        });
+
+        // Добавляем обработчик события для закрытия модального окна
+        close.addEventListener('click', () => {
+            // Скрываем модальное окно
+            modal.style.display = 'none';
+        });
+
+        // Добавляем обработчик события для щелчка за пределами модального окна для закрытия его
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Получаем все кнопки "в резерв"
+        const reserveButtons = document.querySelectorAll('.reserve-button');
+
+        // Получаем счетчик корзины
+        const cartCountElement = document.getElementById('cart-count');
+        let cartCount = 0;
+
+        // Добавляем обработчик события для каждой кнопки "в резерв"
+        reserveButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Увеличиваем счетчик корзины при нажатии на кнопку "в резерв"
+                cartCount++;
+                cartCountElement.textContent = cartCount;
+            });
+        });
+    </script>
+</body>
+</html>

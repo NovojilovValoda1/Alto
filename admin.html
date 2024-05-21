@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Админ-панель</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="/book.png" type="image/png" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="book.png" alt="Логотип" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="location.html">Где нас найти?</a></li>
+        </ul>
+      </nav>
+      <div class="auth-links">
+        <a href="login.html">Вход</a>
+        <a href="register.html">Регистрация</a>
+      </div>
+    </header>
+
+    <main>
+      <h1>Админ-панель</h1>
+      <div class="admin-buttons">
+        <button onclick="location.href='reserves.html'">
+          Просмотр списка всех резервов
+        </button>
+        <button onclick="location.href='delete_reserve.html'">
+          Удаление отдельного резерва
+        </button>
+        <button onclick="location.href='manage_items.html'">
+          Управление предметами коллекции
+        </button>
+        <button onclick="location.href='manage_categories.html'">
+          Управление категориями коллекции
+        </button>
+      </div>
+    </main>
+
+    <footer>
+      <div class="contact-info">
+        <p>КОНТАКТЫ:</p>
+        <p>
+          188800 Ленинградская область, г. Выборг, пр. Суворова, д. 4
+          <img src="home.png" alt="Домик" />
+        </p>
+        <p>
+          Телефон: 8(81378)2-42-79; 8 (81378) 2-11-53
+          <img src="phone.png" alt="Телефон" />
+        </p>
+        <p>
+          E-mail: marketing@aaltolibrary.ru <img src="mail.png" alt="Почта" />
+        </p>
+      </div>
+    </footer>
+
+    <style>
+      .admin-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .admin-buttons button {
+        padding: 10px 20px;
+        background-color: #2aaaff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .admin-buttons button:hover {
+        background-color: #2aaaff;
+      }
+
+      footer {
+        background-color: #177bda;
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </body>
+</html>
